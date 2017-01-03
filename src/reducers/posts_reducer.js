@@ -7,7 +7,7 @@
 */
 
 
-import { FETCH_POSTS } from '../actions/index';
+import { FETCH_POSTS, FETCH_POST } from '../actions/index';
 
 //Post holds a single post
 //All holds an array of all the posts
@@ -20,6 +20,11 @@ export default function(state = INIT_STATE, action) {
 
 			//Return whatever current state is AND then add ALL
 			return { ...state, all: action.payload.data }
+
+		case FETCH_POST:
+
+			//Return a single post from the server
+			return { ...state, post: action.payload.data }
 
 		default: 
 			return state;

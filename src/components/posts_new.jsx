@@ -11,7 +11,13 @@ class PostsNew extends Component {
 	}
 
 	onSubmit(props) {
-		this.props.createPost(props);
+		//Action create that creates promise as payload
+		this.props.createPost(props)
+			.then(() => {
+				//Blog post has been created, nav to index
+				//This.context.router.push with new path
+				this.context.router.push('/');
+			});
 	}
 
 	render() {
